@@ -91,35 +91,43 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <p className="text-[#4a9ba0] font-medium mb-4 tracking-wide">Hello, I&apos;m</p>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#2a4a5a]">
-            Your Name
+            Daniel He
           </h1>
           <p className="text-xl md:text-2xl text-[#4a6a7a] mb-8 max-w-2xl mx-auto leading-relaxed">
-            A passionate developer crafting beautiful digital experiences with clean code and thoughtful design.
+            CS student building AI agents, full-stack systems, and applied AI/ML. Focused on reliable evaluation pipelines and clean, user-facing experiences.
           </p>
           <div className="flex items-center justify-center gap-6 mb-12">
             <Link
-              href="https://github.com"
+              href="https://github.com/DanielHe09"
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-3 rounded-full bg-[#d9c9d6]/50 hover:bg-[#4a9ba0]/30 text-[#4a6a7a] hover:text-[#4a9ba0] transition-colors duration-300"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
             </Link>
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/daniel-he-1309b2294/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-3 rounded-full bg-[#d9c9d6]/50 hover:bg-[#4a9ba0]/30 text-[#4a6a7a] hover:text-[#4a9ba0] transition-colors duration-300"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </Link>
             <Link
-              href="https://twitter.com"
+              href="https://x.com/DanielHe09"
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-3 rounded-full bg-[#d9c9d6]/50 hover:bg-[#4a9ba0]/30 text-[#4a6a7a] hover:text-[#4a9ba0] transition-colors duration-300"
               aria-label="Twitter"
             >
               <Twitter className="w-5 h-5" />
             </Link>
             <Link
-              href="mailto:hello@example.com"
+              href="mailto:dhe72@uwo.ca"
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-3 rounded-full bg-[#d9c9d6]/50 hover:bg-[#4a9ba0]/30 text-[#4a6a7a] hover:text-[#4a9ba0] transition-colors duration-300"
               aria-label="Email"
             >
@@ -147,19 +155,19 @@ export default function Home() {
       <section id="about" className="py-24 px-6 bg-[#f7f4e3]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-[#2a4a5a]">
-            <span className="text-[#4a9ba0]">01.</span> About Me
+            About Me
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2 space-y-4 text-[#4a6a7a] leading-relaxed">
               <p>
-                I&apos;m a software developer who loves building things for the web. My journey started back in 2015 when I decided to try customizing a WordPress theme — turns out hacking together a custom theme taught me a lot about HTML &amp; CSS!
+                I&apos;m a CS student building AI agents, full-stack systems, and applied AI/ML. I care about writing reliable software, especially when models and data are involved.
               </p>
               <p>
-                Fast-forward to today, and I&apos;ve had the privilege of working at startups, agencies, and large corporations. My main focus these days is building accessible, inclusive products and digital experiences.
+                Currently, I&apos;m doing undergraduate research for LLM hallucination benchmarking and synthetic data generation. I&apos;ve also worked on AI infrastructure for internal chatbots and automation.
               </p>
               <p>Here are some technologies I&apos;ve been working with:</p>
               <div className="grid grid-cols-2 gap-2 mt-4">
-                {["TypeScript", "React", "Next.js", "Node.js", "Tailwind CSS", "PostgreSQL"].map((tech) => (
+                {["LangChain", "MongoDB", "TypeScript", "React", "Next.js", "Python", "FastAPI", "Supabase"].map((tech) => (
                   <div key={tech} className="flex items-center gap-2 text-sm">
                     <span className="text-[#4a9ba0]">▹</span>
                     {tech}
@@ -188,27 +196,21 @@ export default function Home() {
       <section id="experience" className="py-24 px-6 bg-[#f5ddd5]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-[#2a4a5a]">
-            <span className="text-[#4a9ba0]">02.</span> Experience
+            Experience
           </h2>
           <div className="space-y-8">
             {[
               {
-                role: "Senior Developer",
-                company: "Tech Company",
-                period: "2022 - Present",
-                description: "Lead development of customer-facing web applications using React and Node.js. Mentored junior developers and established coding standards.",
+                role: "Undergraduate Research Assistant",
+                company: "Western University",
+                period: "Oct 2025 - Present",
+                description: "LLM hallucination benchmarking and synthetic data generation for evaluation pipelines.",
               },
               {
-                role: "Full Stack Developer",
-                company: "Digital Agency",
-                period: "2020 - 2022",
-                description: "Built responsive web applications for various clients. Collaborated with designers to implement pixel-perfect UIs.",
-              },
-              {
-                role: "Junior Developer",
-                company: "Startup Inc",
-                period: "2018 - 2020",
-                description: "Developed and maintained internal tools. Gained experience with modern JavaScript frameworks and agile methodologies.",
+                role: "Developer 1 Intern",
+                company: "Scotiabank",
+                period: "May 2025 - August 2025",
+                description: "AI infrastructure work for internal chatbots and automation.",
               },
             ].map((job, index) => (
               <div
@@ -236,39 +238,40 @@ export default function Home() {
       <section id="projects" className="py-24 px-6 bg-[#d9c9d6]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-[#2a4a5a]">
-            <span className="text-[#4a9ba0]">03.</span> Projects
+            Projects
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Project One",
-                description: "A full-stack web application with real-time features and modern UI design.",
-                tags: ["React", "Node.js", "Socket.io"],
+                title: "Dex2",
+                description: "Chrome Extension AI agent that stores tab info as context and performs actions like analyzing sheets, opening new tabs, and drafting emails.",
+                tags: ["LangChain", "MongoDB", "TypeScript", "React", "Python", "FastAPI", "Supabase"],
+                url: "https://github.com/DanielHe09/Dex2",
               },
               {
-                title: "Project Two",
-                description: "An e-commerce platform with payment integration and inventory management.",
-                tags: ["Next.js", "Stripe", "PostgreSQL"],
+                title: "Lumiere",
+                description: "Personalized AI concierge service that uses web crawling to generate accurate, tailored itineraries.",
+                tags: ["TypeScript", "Supabase", "Next.js", "Vercel"],
+                url: "https://lumiere-gamma-self.vercel.app",
               },
               {
-                title: "Project Three",
-                description: "A mobile-first dashboard for data visualization and analytics.",
-                tags: ["TypeScript", "D3.js", "Tailwind"],
+                title: "Say Less",
+                description: "Web app that converts American Sign Language to speech and speech to text in real time; Best use of ElevenLabs at Hack Trent 2025.",
+                tags: ["Python", "FastAPI", "Docker", "Render", "ElevenLabs", "MediaPipe"],
+                url: "https://devpost.com/software/sayless-3g8jdl",
               },
               {
-                title: "Project Four",
-                description: "CLI tool for automating development workflows and deployments.",
-                tags: ["Node.js", "Commander", "AWS"],
+                title: "The Fastest Root",
+                description: "Web app that supports restaurant owners and families in accessing affordable groceries efficiently; 3rd place overall at Ignition Hacks 2024.",
+                tags: ["Python", "JavaScript"],
+                url: "https://devpost.com/software/the-fastest-root",
               },
               {
-                title: "Project Five",
-                description: "REST API with authentication, rate limiting, and comprehensive documentation.",
-                tags: ["Express", "JWT", "Swagger"],
-              },
-              {
-                title: "Project Six",
-                description: "Browser extension for productivity with cross-browser support.",
-                tags: ["JavaScript", "Chrome API", "Firefox"],
+                title: "Motor Shield",
+                description:
+                  "AI-powered motor telemetry and diagnostics dashboard; received the Industry Choice award at the Canadian Tech Summit.",
+                tags: ["Python", "TypeScript", "Next.js"],
+                url: "https://motor-shield.vercel.app/Dashboard",
               },
             ].map((project, index) => (
               <div
@@ -281,9 +284,16 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                     </svg>
                   </div>
-                  <Link href="#" className="text-[#8a9aaa] hover:text-[#4a9ba0] transition-colors">
-                    <ExternalLink className="w-5 h-5" />
-                  </Link>
+                  {project.url ? (
+                    <Link
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#8a9aaa] hover:text-[#4a9ba0] transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </Link>
+                  ) : null}
                 </div>
                 <h3 className="text-lg font-semibold text-[#2a4a5a] mb-2 group-hover:text-[#4a9ba0] transition-colors">
                   {project.title}
@@ -311,13 +321,15 @@ export default function Home() {
       <section id="contact" className="py-24 px-6 bg-[#8ac4d0]">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6 text-[#2a4a5a]">
-            <span className="text-[#f7f4e3]">04.</span> Get In Touch
+            Get In Touch
           </h2>
           <p className="text-[#2a4a5a]/80 mb-8 leading-relaxed">
             I&apos;m currently open to new opportunities. Whether you have a question or just want to say hi, my inbox is always open. I&apos;ll do my best to get back to you!
           </p>
           <Link
-            href="mailto:hello@example.com"
+            href="mailto:dhe72@uwo.ca"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3 bg-[#f7f4e3] hover:bg-white text-[#4a9ba0] rounded-lg font-medium transition-colors duration-300"
           >
             <Mail className="w-5 h-5" />
@@ -325,7 +337,7 @@ export default function Home() {
           </Link>
           <div className="flex items-center justify-center gap-2 mt-8 text-[#2a4a5a]/70">
             <MapPin className="w-4 h-4" />
-            <span>San Francisco, CA</span>
+            <span>Toronto, ON</span>
           </div>
         </div>
       </section>
@@ -337,13 +349,28 @@ export default function Home() {
             Designed &amp; Built with care
           </p>
           <div className="flex items-center gap-4">
-            <Link href="https://github.com" className="text-[#c5dde8] hover:text-white transition-colors">
+            <Link
+              href="https://github.com/DanielHe09"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#c5dde8] hover:text-white transition-colors"
+            >
               <Github className="w-5 h-5" />
             </Link>
-            <Link href="https://linkedin.com" className="text-[#c5dde8] hover:text-white transition-colors">
+            <Link
+              href="https://www.linkedin.com/in/daniel-he-1309b2294/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#c5dde8] hover:text-white transition-colors"
+            >
               <Linkedin className="w-5 h-5" />
             </Link>
-            <Link href="https://twitter.com" className="text-[#c5dde8] hover:text-white transition-colors">
+            <Link
+              href="https://x.com/DanielHe09"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#c5dde8] hover:text-white transition-colors"
+            >
               <Twitter className="w-5 h-5" />
             </Link>
           </div>
