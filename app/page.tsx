@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a1628] text-slate-100">
+    <main className="min-h-screen bg-[#1a2332] text-[#c8d4e3]">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated wave background */}
@@ -14,8 +14,8 @@ export default function Home() {
             preserveAspectRatio="none"
           >
             <path
-              fill="#1e3a5f"
-              fillOpacity="0.4"
+              fill="#3d5a73"
+              fillOpacity="0.3"
               d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             >
               <animate
@@ -26,7 +26,7 @@ export default function Home() {
               />
             </path>
             <path
-              fill="#2563eb"
+              fill="#5a7d9a"
               fillOpacity="0.2"
               d="M0,256L48,261.3C96,267,192,277,288,266.7C384,256,480,224,576,218.7C672,213,768,235,864,245.3C960,256,1056,256,1152,240C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             >
@@ -41,38 +41,38 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <p className="text-blue-400 font-medium mb-4 tracking-wide">Hello, I&apos;m</p>
+          <p className="text-[#7a9cb8] font-medium mb-4 tracking-wide">Hello, I&apos;m</p>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
             Your Name
           </h1>
-          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-[#9aabbf] mb-8 max-w-2xl mx-auto leading-relaxed">
             A passionate developer crafting beautiful digital experiences with clean code and thoughtful design.
           </p>
           <div className="flex items-center justify-center gap-6 mb-12">
             <Link
               href="https://github.com"
-              className="p-3 rounded-full bg-slate-800/50 hover:bg-blue-600/30 transition-colors duration-300"
+              className="p-3 rounded-full bg-[#2a3544]/60 hover:bg-[#4a6b8a]/30 transition-colors duration-300"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
             </Link>
             <Link
               href="https://linkedin.com"
-              className="p-3 rounded-full bg-slate-800/50 hover:bg-blue-600/30 transition-colors duration-300"
+              className="p-3 rounded-full bg-[#2a3544]/60 hover:bg-[#4a6b8a]/30 transition-colors duration-300"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </Link>
             <Link
               href="https://twitter.com"
-              className="p-3 rounded-full bg-slate-800/50 hover:bg-blue-600/30 transition-colors duration-300"
+              className="p-3 rounded-full bg-[#2a3544]/60 hover:bg-[#4a6b8a]/30 transition-colors duration-300"
               aria-label="Twitter"
             >
               <Twitter className="w-5 h-5" />
             </Link>
             <Link
               href="mailto:hello@example.com"
-              className="p-3 rounded-full bg-slate-800/50 hover:bg-blue-600/30 transition-colors duration-300"
+              className="p-3 rounded-full bg-[#2a3544]/60 hover:bg-[#4a6b8a]/30 transition-colors duration-300"
               aria-label="Email"
             >
               <Mail className="w-5 h-5" />
@@ -81,13 +81,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="#projects"
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors duration-300"
+              className="px-8 py-3 bg-[#4a6b8a] hover:bg-[#5a7d9a] rounded-lg font-medium transition-colors duration-300 text-[#e8f0f5]"
             >
               View My Work
             </Link>
             <Link
               href="#contact"
-              className="px-8 py-3 border border-slate-600 hover:border-blue-500 hover:text-blue-400 rounded-lg font-medium transition-colors duration-300"
+              className="px-8 py-3 border border-[#3d5066] hover:border-[#7a9cb8] hover:text-[#7a9cb8] rounded-lg font-medium transition-colors duration-300"
             >
               Get In Touch
             </Link>
@@ -96,13 +96,13 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 px-6 bg-[#0d1d32]">
+      <section id="about" className="py-24 px-6 bg-[#1e2a3a]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">
-            <span className="text-blue-400">01.</span> About Me
+            <span className="text-[#7a9cb8]">01.</span> About Me
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="md:col-span-2 space-y-4 text-slate-300 leading-relaxed">
+            <div className="md:col-span-2 space-y-4 text-[#9aabbf] leading-relaxed">
               <p>
                 I&apos;m a software developer who loves building things for the web. My journey started back in 2015 when I decided to try customizing a WordPress theme — turns out hacking together a custom theme taught me a lot about HTML &amp; CSS!
               </p>
@@ -113,7 +113,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-2 mt-4">
                 {["TypeScript", "React", "Next.js", "Node.js", "Tailwind CSS", "PostgreSQL"].map((tech) => (
                   <div key={tech} className="flex items-center gap-2 text-sm">
-                    <span className="text-blue-400">▹</span>
+                    <span className="text-[#7a9cb8]">▹</span>
                     {tech}
                   </div>
                 ))}
@@ -121,10 +121,10 @@ export default function Home() {
             </div>
             <div className="flex justify-center md:justify-end">
               <div className="relative">
-                <div className="w-48 h-48 rounded-lg bg-gradient-to-br from-blue-600/20 to-blue-400/10 border-2 border-blue-500/30 flex items-center justify-center">
-                  <span className="text-6xl text-blue-400/50">?</span>
+                <div className="w-48 h-48 rounded-lg bg-gradient-to-br from-[#4a6b8a]/20 to-[#7a9cb8]/10 border-2 border-[#5a7d9a]/30 flex items-center justify-center">
+                  <span className="text-6xl text-[#7a9cb8]/50">?</span>
                 </div>
-                <div className="absolute -bottom-2 -right-2 w-48 h-48 border-2 border-blue-500/30 rounded-lg -z-10" />
+                <div className="absolute -bottom-2 -right-2 w-48 h-48 border-2 border-[#5a7d9a]/30 rounded-lg -z-10" />
               </div>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function Home() {
       <section id="experience" className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">
-            <span className="text-blue-400">02.</span> Experience
+            <span className="text-[#7a9cb8]">02.</span> Experience
           </h2>
           <div className="space-y-8">
             {[
@@ -160,19 +160,19 @@ export default function Home() {
             ].map((job, index) => (
               <div
                 key={index}
-                className="relative pl-8 border-l-2 border-slate-700 hover:border-blue-500 transition-colors duration-300"
+                className="relative pl-8 border-l-2 border-[#3d5066] hover:border-[#7a9cb8] transition-colors duration-300"
               >
-                <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-blue-500" />
+                <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-[#6b8fa8]" />
                 <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
                   <h3 className="text-xl font-semibold text-white">{job.role}</h3>
-                  <span className="hidden md:block text-slate-500">@</span>
-                  <span className="text-blue-400">{job.company}</span>
+                  <span className="hidden md:block text-[#5a6b7a]">@</span>
+                  <span className="text-[#7a9cb8]">{job.company}</span>
                 </div>
-                <p className="text-sm text-slate-500 mb-3 flex items-center gap-2">
+                <p className="text-sm text-[#6a7b8a] mb-3 flex items-center gap-2">
                   <Briefcase className="w-4 h-4" />
                   {job.period}
                 </p>
-                <p className="text-slate-300">{job.description}</p>
+                <p className="text-[#9aabbf]">{job.description}</p>
               </div>
             ))}
           </div>
@@ -180,10 +180,10 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-24 px-6 bg-[#0d1d32]">
+      <section id="projects" className="py-24 px-6 bg-[#1e2a3a]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">
-            <span className="text-blue-400">03.</span> Projects
+            <span className="text-[#7a9cb8]">03.</span> Projects
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -220,29 +220,29 @@ export default function Home() {
             ].map((project, index) => (
               <div
                 key={index}
-                className="group p-6 bg-[#112240] rounded-lg hover:translate-y-[-4px] transition-all duration-300 border border-slate-700/50 hover:border-blue-500/50"
+                className="group p-6 bg-[#232f3e] rounded-lg hover:translate-y-[-4px] transition-all duration-300 border border-[#3d5066]/50 hover:border-[#7a9cb8]/50"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <div className="p-2 bg-blue-500/10 rounded-lg">
-                    <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="p-2 bg-[#4a6b8a]/10 rounded-lg">
+                    <svg className="w-6 h-6 text-[#7a9cb8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                     </svg>
                   </div>
-                  <Link href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
+                  <Link href="#" className="text-[#6a7b8a] hover:text-[#7a9cb8] transition-colors">
                     <ExternalLink className="w-5 h-5" />
                   </Link>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-lg font-semibold text-[#d8e4ef] mb-2 group-hover:text-[#7a9cb8] transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">
+                <p className="text-[#8a9baa] text-sm mb-4 leading-relaxed">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2 py-1 bg-blue-500/10 text-blue-300 rounded"
+                      className="text-xs px-2 py-1 bg-[#4a6b8a]/15 text-[#8aacbf] rounded"
                     >
                       {tag}
                     </span>
@@ -258,19 +258,19 @@ export default function Home() {
       <section id="contact" className="py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">
-            <span className="text-blue-400">04.</span> Get In Touch
+            <span className="text-[#7a9cb8]">04.</span> Get In Touch
           </h2>
-          <p className="text-slate-300 mb-8 leading-relaxed">
+          <p className="text-[#9aabbf] mb-8 leading-relaxed">
             I&apos;m currently open to new opportunities. Whether you have a question or just want to say hi, my inbox is always open. I&apos;ll do my best to get back to you!
           </p>
           <Link
             href="mailto:hello@example.com"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors duration-300"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-[#4a6b8a] hover:bg-[#5a7d9a] rounded-lg font-medium transition-colors duration-300 text-[#e8f0f5]"
           >
             <Mail className="w-5 h-5" />
             Say Hello
           </Link>
-          <div className="flex items-center justify-center gap-2 mt-8 text-slate-400">
+          <div className="flex items-center justify-center gap-2 mt-8 text-[#7a8b9a]">
             <MapPin className="w-4 h-4" />
             <span>San Francisco, CA</span>
           </div>
@@ -278,19 +278,19 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-slate-800">
+      <footer className="py-8 px-6 border-t border-[#2d3d4d]">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-400 text-sm">
+          <p className="text-[#7a8b9a] text-sm">
             Designed &amp; Built with care
           </p>
           <div className="flex items-center gap-4">
-            <Link href="https://github.com" className="text-slate-400 hover:text-blue-400 transition-colors">
+            <Link href="https://github.com" className="text-[#7a8b9a] hover:text-[#9aabbf] transition-colors">
               <Github className="w-5 h-5" />
             </Link>
-            <Link href="https://linkedin.com" className="text-slate-400 hover:text-blue-400 transition-colors">
+            <Link href="https://linkedin.com" className="text-[#7a8b9a] hover:text-[#9aabbf] transition-colors">
               <Linkedin className="w-5 h-5" />
             </Link>
-            <Link href="https://twitter.com" className="text-slate-400 hover:text-blue-400 transition-colors">
+            <Link href="https://twitter.com" className="text-[#7a8b9a] hover:text-[#9aabbf] transition-colors">
               <Twitter className="w-5 h-5" />
             </Link>
           </div>
