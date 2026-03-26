@@ -169,8 +169,13 @@ export default function Home() {
             </div>
             <div className="flex justify-center md:justify-end">
               <div className="relative">
-                <div className="w-48 h-48 rounded-lg bg-gradient-to-br from-[#8ac4d0]/30 to-[#4a9ba0]/20 border-2 border-[#4a9ba0]/30 flex items-center justify-center">
-                  <span className="text-6xl text-[#4a9ba0]/40">?</span>
+                <div className="w-48 h-48 rounded-lg bg-gradient-to-br from-[#8ac4d0]/30 to-[#4a9ba0]/20 border-2 border-[#4a9ba0]/30 overflow-hidden">
+                  <img
+                    src="/Profile.HEIC"
+                    alt="Headshot"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="absolute -bottom-2 -right-2 w-48 h-48 border-2 border-[#4a9ba0]/30 rounded-lg -z-10" />
               </div>
