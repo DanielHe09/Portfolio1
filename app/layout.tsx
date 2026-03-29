@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   description: 'Created with v0',
   generator: 'v0.app',
   icons: {
-    icon: '/Favicon.png',
-    apple: '/Favicon.png',
+    icon: '/Favicon.png?v=2',
+    apple: '/Favicon.png?v=2',
   },
 }
 
