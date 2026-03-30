@@ -10,6 +10,49 @@ import FlyingBirds from "@/components/flying-birds"
 // Light sky blue: #8ac4d0
 // Pale blue: #c5dde8
 
+const PROJECTS = [
+  {
+    title: "Dex2",
+    description:
+      "Chrome Extension AI agent that stores tab info as context and performs actions like analyzing sheets, opening new tabs, and drafting emails.",
+    tags: ["LangChain", "MongoDB", "TypeScript", "React", "Python", "FastAPI", "Supabase"],
+    url: "https://github.com/DanielHe09/Dex2",
+    image: "/Dex2%20Cover.png",
+  },
+  {
+    title: "Lumiere",
+    description:
+      "Personalized AI concierge service that uses web crawling to generate accurate, tailored itineraries.",
+    tags: ["TypeScript", "Supabase", "Next.js", "Vercel"],
+    url: "https://lumiere-gamma-self.vercel.app",
+    image: "/Lumiere%20Cover.png",
+  },
+  {
+    title: "Say Less",
+    description:
+      "Web app that converts American Sign Language to speech and speech to text in real time; Best use of ElevenLabs at Hack Trent 2025.",
+    tags: ["Python", "FastAPI", "Docker", "Render", "ElevenLabs", "MediaPipe"],
+    url: "https://devpost.com/software/sayless-3g8jdl",
+    image: "/Sayless%20Cover.png",
+  },
+  {
+    title: "The Fastest Root",
+    description:
+      "Web app that supports restaurant owners and families in accessing affordable groceries efficiently; 3rd place overall at Ignition Hacks 2024.",
+    tags: ["Python", "JavaScript"],
+    url: "https://devpost.com/software/the-fastest-root",
+    image: "/Fastest%20Root%20Cover.png",
+  },
+  {
+    title: "Motor Shield",
+    description:
+      "AI-powered motor telemetry and diagnostics dashboard; received the Industry Choice award at the Canadian Tech Summit.",
+    tags: ["Python", "TypeScript", "Next.js"],
+    url: "https://motor-shield.vercel.app/Dashboard",
+    image: "/Motorshield%20Cover.png",
+  },
+]
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#c5dde8] text-[#2a4a5a]">
@@ -95,7 +138,7 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <p className="text-[#4a9ba0] font-medium mb-4 tracking-wide">Hello, I&apos;m</p>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#2a4a5a]">
-            Daniel He
+            Daniel
           </h1>
           <p className="text-xl md:text-2xl text-[#4a6a7a] mb-8 max-w-2xl mx-auto leading-relaxed">
             CS student building AI agents, full-stack systems, and applied AI/ML. Focused on reliable evaluation pipelines and clean, user-facing experiences.
@@ -183,7 +226,7 @@ export default function Home() {
               <div className="relative">
                 <div className="w-48 h-48 rounded-lg bg-gradient-to-br from-[#8ac4d0]/30 to-[#4a9ba0]/20 border-2 border-[#4a9ba0]/30 overflow-hidden">
                   <img
-                    src="/Profile.HEIC"
+                    src="/Profile.png"
                     alt="Headshot"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -240,83 +283,68 @@ export default function Home() {
 
       {/* Projects Section */}
       <section id="projects" className="py-24 px-6 bg-[#d9c9d6]">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center text-[#2a4a5a]">
-            Projects
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Dex2",
-                description: "Chrome Extension AI agent that stores tab info as context and performs actions like analyzing sheets, opening new tabs, and drafting emails.",
-                tags: ["LangChain", "MongoDB", "TypeScript", "React", "Python", "FastAPI", "Supabase"],
-                url: "https://github.com/DanielHe09/Dex2",
-              },
-              {
-                title: "Lumiere",
-                description: "Personalized AI concierge service that uses web crawling to generate accurate, tailored itineraries.",
-                tags: ["TypeScript", "Supabase", "Next.js", "Vercel"],
-                url: "https://lumiere-gamma-self.vercel.app",
-              },
-              {
-                title: "Say Less",
-                description: "Web app that converts American Sign Language to speech and speech to text in real time; Best use of ElevenLabs at Hack Trent 2025.",
-                tags: ["Python", "FastAPI", "Docker", "Render", "ElevenLabs", "MediaPipe"],
-                url: "https://devpost.com/software/sayless-3g8jdl",
-              },
-              {
-                title: "The Fastest Root",
-                description: "Web app that supports restaurant owners and families in accessing affordable groceries efficiently; 3rd place overall at Ignition Hacks 2024.",
-                tags: ["Python", "JavaScript"],
-                url: "https://devpost.com/software/the-fastest-root",
-              },
-              {
-                title: "Motor Shield",
-                description:
-                  "AI-powered motor telemetry and diagnostics dashboard; received the Industry Choice award at the Canadian Tech Summit.",
-                tags: ["Python", "TypeScript", "Next.js"],
-                url: "https://motor-shield.vercel.app/Dashboard",
-              },
-            ].map((project, index) => (
-              <div
-                key={index}
-                className="group p-6 bg-[#f7f4e3] rounded-lg hover:translate-y-[-4px] transition-all duration-300 border border-[#c5dde8] hover:border-[#4a9ba0]/50 shadow-sm"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="p-2 bg-[#8ac4d0]/20 rounded-lg">
-                    <svg className="w-6 h-6 text-[#4a9ba0]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                    </svg>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-[#2a4a5a]">Projects</h2>
+          <p className="text-center text-[#4a6a7a] text-sm md:text-base mt-3 mb-12 max-w-2xl mx-auto leading-relaxed">
+            A collection of my projects and experiences.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            {PROJECTS.map((project, index) => {
+              const cardBody = (
+                <>
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#c5dde8]">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} project preview`}
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
                   </div>
-                  {project.url ? (
-                    <Link
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#8a9aaa] hover:text-[#4a9ba0] transition-colors"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </Link>
-                  ) : null}
+                  <div className="flex flex-col gap-4 p-6 md:p-7">
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-xl md:text-2xl font-semibold text-[#2a4a5a] group-hover:text-[#4a9ba0] transition-colors leading-snug">
+                        {project.title}
+                      </h3>
+                      {project.url ? (
+                        <span className="shrink-0 text-[#8a9aaa] group-hover:text-[#4a9ba0] transition-colors" aria-hidden>
+                          <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
+                        </span>
+                      ) : null}
+                    </div>
+                    <p className="text-[#5a7a8a] text-sm md:text-base leading-relaxed">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs px-2 py-1 bg-[#8ac4d0]/20 text-[#4a9ba0] rounded"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )
+
+              return project.url ? (
+                <Link
+                  key={`${project.title}-${index}`}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col overflow-hidden rounded-xl bg-[#f7f4e3] border-2 border-[#4a9ba0] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#4a9ba0]/10 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9ba0]"
+                >
+                  {cardBody}
+                </Link>
+              ) : (
+                <div
+                  key={`${project.title}-${index}`}
+                  className="group flex flex-col overflow-hidden rounded-xl bg-[#f7f4e3] border-2 border-[#4a9ba0] shadow-sm"
+                >
+                  {cardBody}
                 </div>
-                <h3 className="text-lg font-semibold text-[#2a4a5a] mb-2 group-hover:text-[#4a9ba0] transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-[#5a7a8a] text-sm mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-2 py-1 bg-[#8ac4d0]/20 text-[#4a9ba0] rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
