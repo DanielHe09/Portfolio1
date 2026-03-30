@@ -13,9 +13,9 @@ interface Bird {
   wingPhase: number
 }
 
-// Simple seagull SVG shape inspired by the reference image
+// Seagull SVG with dynamic wing flapping animation
 function Seagull({ 
-  size = 30, 
+  size = 60, 
   direction = "right",
   wingPhase = 0 
 }: { 
@@ -24,49 +24,66 @@ function Seagull({
   wingPhase?: number
 }) {
   const flip = direction === "left" ? -1 : 1
-  // Wing animation - subtle up/down movement
-  const wingOffset = Math.sin(wingPhase) * 3
+  // More dramatic wing animation for visible flapping
+  const wingOffset = Math.sin(wingPhase) * 12
   
   return (
     <svg
       width={size}
-      height={size * 0.6}
-      viewBox="0 0 60 36"
+      height={size * 0.7}
+      viewBox="0 0 80 50"
       fill="none"
       style={{ transform: `scaleX(${flip})` }}
     >
-      {/* Body */}
-      <ellipse cx="30" cy="20" rx="8" ry="4" fill="#f7f4e3" />
+      {/* Body - elongated for more realistic shape */}
+      <ellipse cx="40" cy="28" rx="12" ry="5" fill="#f7f4e3" />
       {/* Head */}
-      <circle cx="38" cy="18" r="3" fill="#f7f4e3" />
+      <circle cx="52" cy="25" r="5" fill="#f7f4e3" />
+      {/* Eye */}
+      <circle cx="54" cy="24" r="1" fill="#2a3a4a" />
       {/* Beak */}
-      <path d="M41 18 L45 19 L41 20 Z" fill="#e8a87c" />
-      {/* Left wing */}
+      <path d="M57 25 L64 26 L57 28 Z" fill="#e8a87c" />
+      {/* Left wing - large, sweeping */}
       <path
-        d={`M22 20 Q10 ${12 + wingOffset} 5 ${8 + wingOffset} Q12 ${14 + wingOffset} 22 18 Z`}
+        d={`M28 28 Q12 ${18 + wingOffset} 2 ${8 + wingOffset} Q15 ${16 + wingOffset} 28 25 Z`}
         fill="#f7f4e3"
         stroke="#d9c9d6"
-        strokeWidth="0.5"
+        strokeWidth="1"
       />
-      {/* Left wing tip (dark) */}
+      {/* Left wing feather details */}
       <path
-        d={`M5 ${8 + wingOffset} Q8 ${10 + wingOffset} 10 ${12 + wingOffset} L7 ${9 + wingOffset} Z`}
-        fill="#4a6a7a"
-      />
-      {/* Right wing */}
-      <path
-        d={`M38 20 Q50 ${12 - wingOffset} 55 ${8 - wingOffset} Q48 ${14 - wingOffset} 38 18 Z`}
-        fill="#f7f4e3"
+        d={`M18 ${18 + wingOffset * 0.7} Q10 ${14 + wingOffset} 5 ${10 + wingOffset}`}
         stroke="#d9c9d6"
         strokeWidth="0.5"
+        fill="none"
       />
-      {/* Right wing tip (dark) */}
+      {/* Left wing tip (dark feathers) */}
       <path
-        d={`M55 ${8 - wingOffset} Q52 ${10 - wingOffset} 50 ${12 - wingOffset} L53 ${9 - wingOffset} Z`}
+        d={`M2 ${8 + wingOffset} Q6 ${11 + wingOffset} 12 ${15 + wingOffset} L8 ${10 + wingOffset} L4 ${7 + wingOffset} Z`}
         fill="#4a6a7a"
       />
-      {/* Tail */}
-      <path d="M22 19 L16 21 L22 22 Z" fill="#f7f4e3" />
+      {/* Right wing - large, sweeping */}
+      <path
+        d={`M52 28 Q68 ${18 - wingOffset} 78 ${8 - wingOffset} Q65 ${16 - wingOffset} 52 25 Z`}
+        fill="#f7f4e3"
+        stroke="#d9c9d6"
+        strokeWidth="1"
+      />
+      {/* Right wing feather details */}
+      <path
+        d={`M62 ${18 - wingOffset * 0.7} Q70 ${14 - wingOffset} 75 ${10 - wingOffset}`}
+        stroke="#d9c9d6"
+        strokeWidth="0.5"
+        fill="none"
+      />
+      {/* Right wing tip (dark feathers) */}
+      <path
+        d={`M78 ${8 - wingOffset} Q74 ${11 - wingOffset} 68 ${15 - wingOffset} L72 ${10 - wingOffset} L76 ${7 - wingOffset} Z`}
+        fill="#4a6a7a"
+      />
+      {/* Tail feathers */}
+      <path d="M28 27 L18 30 L28 31 Z" fill="#f7f4e3" />
+      <path d="M20 29 L18 30 L20 31" stroke="#d9c9d6" strokeWidth="0.5" fill="none" />
     </svg>
   )
 }
@@ -78,35 +95,35 @@ export default function FlyingBirds() {
   useEffect(() => {
     setMounted(true)
     
-    // Initialize with 3 birds at different positions
+    // Initialize with 3 birds at different positions - larger sizes
     const initialBirds: Bird[] = [
       {
         id: 1,
         startX: -100,
-        y: 15 + Math.random() * 20,
+        y: 12 + Math.random() * 18,
         direction: "right",
-        speed: 15 + Math.random() * 10,
-        size: 25 + Math.random() * 15,
+        speed: 18 + Math.random() * 8,
+        size: 55 + Math.random() * 25,
         delay: 0,
         wingPhase: 0,
       },
       {
         id: 2,
         startX: 110,
-        y: 20 + Math.random() * 15,
+        y: 18 + Math.random() * 15,
         direction: "left",
-        speed: 18 + Math.random() * 8,
-        size: 30 + Math.random() * 10,
+        speed: 20 + Math.random() * 6,
+        size: 60 + Math.random() * 20,
         delay: 0,
         wingPhase: Math.PI / 2,
       },
       {
         id: 3,
         startX: -50,
-        y: 25 + Math.random() * 20,
+        y: 22 + Math.random() * 18,
         direction: "right",
-        speed: 12 + Math.random() * 12,
-        size: 20 + Math.random() * 15,
+        speed: 16 + Math.random() * 10,
+        size: 50 + Math.random() * 30,
         delay: 0,
         wingPhase: Math.PI,
       },
@@ -120,10 +137,10 @@ export default function FlyingBirds() {
       const newBird: Bird = {
         id: birdIdCounter++,
         startX: direction === "right" ? -100 : 110,
-        y: 10 + Math.random() * 35,
+        y: 8 + Math.random() * 32,
         direction,
-        speed: 12 + Math.random() * 15,
-        size: 20 + Math.random() * 20,
+        speed: 16 + Math.random() * 12,
+        size: 50 + Math.random() * 35,
         delay: 0,
         wingPhase: Math.random() * Math.PI * 2,
       }
@@ -146,10 +163,10 @@ export default function FlyingBirds() {
       setBirds(prev => 
         prev.map(bird => ({
           ...bird,
-          wingPhase: bird.wingPhase + 0.5,
+          wingPhase: bird.wingPhase + 0.8,
         }))
       )
-    }, 100)
+    }, 60)
 
     return () => clearInterval(wingInterval)
   }, [mounted])
