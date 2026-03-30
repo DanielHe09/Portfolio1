@@ -1,5 +1,6 @@
 import { Github, Linkedin, Twitter, Mail, ExternalLink, MapPin, Briefcase } from "lucide-react"
 import Link from "next/link"
+import FlyingBirds from "@/components/flying-birds"
 
 // Color palette from the image:
 // Soft cream: #f7f4e3
@@ -20,6 +21,9 @@ export default function Home() {
         {/* Sun glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-32 h-32 bg-gradient-radial rounded-full bg-[#f7f4e3] opacity-80 blur-2xl z-[1]" />
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#fff8e7] rounded-full opacity-90 blur-sm z-[1]" />
+
+        {/* Flying birds animation */}
+        <FlyingBirds />
 
         {/* Ocean waves */}
         <div className="absolute bottom-0 left-0 right-0 z-[2]">
