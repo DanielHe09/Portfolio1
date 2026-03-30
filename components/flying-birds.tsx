@@ -95,7 +95,7 @@ export default function FlyingBirds() {
   useEffect(() => {
     setMounted(true)
     
-    // Initialize with 3 birds at different positions - larger sizes
+    // Initialize with 3 birds at different positions - 2x larger sizes
     const initialBirds: Bird[] = [
       {
         id: 1,
@@ -103,7 +103,7 @@ export default function FlyingBirds() {
         y: 12 + Math.random() * 18,
         direction: "right",
         speed: 18 + Math.random() * 8,
-        size: 55 + Math.random() * 25,
+        size: 110 + Math.random() * 50,
         delay: 0,
         wingPhase: 0,
       },
@@ -113,7 +113,7 @@ export default function FlyingBirds() {
         y: 18 + Math.random() * 15,
         direction: "left",
         speed: 20 + Math.random() * 6,
-        size: 60 + Math.random() * 20,
+        size: 120 + Math.random() * 40,
         delay: 0,
         wingPhase: Math.PI / 2,
       },
@@ -123,7 +123,7 @@ export default function FlyingBirds() {
         y: 22 + Math.random() * 18,
         direction: "right",
         speed: 16 + Math.random() * 10,
-        size: 50 + Math.random() * 30,
+        size: 100 + Math.random() * 60,
         delay: 0,
         wingPhase: Math.PI,
       },
