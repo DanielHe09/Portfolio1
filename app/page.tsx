@@ -138,15 +138,37 @@ export default function Home() {
           <div className="absolute bottom-0 w-full h-8 bg-[#4a9ba0]" />
         </div>
 
+        {/* Soft radial scrim that recedes the scene behind the name */}
+        <div
+          className="absolute z-[9] pointer-events-none"
+          style={{
+            inset: 0,
+            background:
+              "radial-gradient(ellipse 70% 38% at 50% 44%, rgba(247,244,227,0.28) 0%, transparent 100%)",
+          }}
+        />
+
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <p className="text-[#4a9ba0] font-medium mb-4 tracking-wide">Hello, I&apos;m</p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#2a4a5a]">
+          <p
+            className="text-[#3a7a80] text-lg md:text-2xl font-semibold mb-2 tracking-[0.3em] uppercase"
+            style={{ animation: "hero-fade-up 0.7s ease-out 0.1s both" }}
+          >
+            Hi, I&apos;m
+          </p>
+          <h1
+            className="leading-none mb-10 mt-2"
+            style={{
+              fontFamily: "var(--font-pacifico)",
+              fontSize: "clamp(5rem, 16vw, 11rem)",
+              color: "#1a3040",
+              textShadow:
+                "0 2px 0 rgba(255,255,255,0.35), 0 6px 24px rgba(26,48,64,0.18)",
+              animation: "hero-name-in 0.85s cubic-bezier(0.22,1,0.36,1) 0.25s both",
+            }}
+          >
             Daniel
           </h1>
-          <p className="text-xl md:text-2xl text-[#4a6a7a] mb-8 max-w-2xl mx-auto leading-relaxed">
-            CS student building AI agents, full-stack systems, and applied AI/ML. Focused on reliable evaluation pipelines and clean, user-facing experiences.
-          </p>
           <div className="flex items-center justify-center gap-6 mb-12">
             <Link
               href="https://github.com/DanielHe09"
