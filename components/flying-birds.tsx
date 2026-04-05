@@ -13,7 +13,7 @@ interface Bird {
   wingPhase: number
 }
 
-// Seagull SVG with dynamic wing flapping animation
+// Seagull SVG with synchronized wing flapping and body bob
 function Seagull({ 
   size = 60, 
   direction = "right",
@@ -24,66 +24,82 @@ function Seagull({
   wingPhase?: number
 }) {
   const flip = direction === "left" ? -1 : 1
-  // More dramatic wing animation for visible flapping
-  const wingOffset = Math.sin(wingPhase) * 12
-  
+
+  // Both wings move in the same direction.
+  // Positive wingOffset = tips go DOWN (downstroke).
+  const wingOffset = Math.sin(wingPhase) * 11
+
+  // Body bobs OPPOSITE to wings: rises during downstroke, dips during upstroke.
+  const bodyBob = -wingOffset * 0.32
+  const bodyY  = 28 + bodyBob
+  const headY  = 25 + bodyBob
+
   return (
     <svg
       width={size}
-      height={size * 0.7}
-      viewBox="0 0 80 50"
+      height={size * 0.75}
+      viewBox="0 -4 80 56"
       fill="none"
       style={{ transform: `scaleX(${flip})` }}
     >
-      {/* Body - elongated for more realistic shape */}
-      <ellipse cx="40" cy="28" rx="12" ry="5" fill="#f7f4e3" />
-      {/* Head */}
-      <circle cx="52" cy="25" r="5" fill="#f7f4e3" />
-      {/* Eye */}
-      <circle cx="54" cy="24" r="1" fill="#2a3a4a" />
-      {/* Beak */}
-      <path d="M57 25 L64 26 L57 28 Z" fill="#e8a87c" />
-      {/* Left wing - large, sweeping */}
+      {/* --- Far (left) wing — rendered behind body --- */}
       <path
-        d={`M28 28 Q12 ${18 + wingOffset} 2 ${8 + wingOffset} Q15 ${16 + wingOffset} 28 25 Z`}
-        fill="#f7f4e3"
+        d={`M28 ${bodyY + 1} Q12 ${18 + wingOffset} 2 ${8 + wingOffset} Q15 ${16 + wingOffset} 28 ${bodyY - 2} Z`}
+        fill="#f0ede0"
         stroke="#d9c9d6"
         strokeWidth="1"
       />
-      {/* Left wing feather details */}
       <path
         d={`M18 ${18 + wingOffset * 0.7} Q10 ${14 + wingOffset} 5 ${10 + wingOffset}`}
         stroke="#d9c9d6"
         strokeWidth="0.5"
         fill="none"
       />
-      {/* Left wing tip (dark feathers) */}
       <path
         d={`M2 ${8 + wingOffset} Q6 ${11 + wingOffset} 12 ${15 + wingOffset} L8 ${10 + wingOffset} L4 ${7 + wingOffset} Z`}
         fill="#4a6a7a"
       />
-      {/* Right wing - large, sweeping */}
+
+      {/* --- Tail (moves with body) --- */}
       <path
-        d={`M52 28 Q68 ${18 - wingOffset} 78 ${8 - wingOffset} Q65 ${16 - wingOffset} 52 25 Z`}
+        d={`M28 ${bodyY - 1} L18 ${bodyY + 2} L28 ${bodyY + 3} Z`}
         fill="#f7f4e3"
-        stroke="#d9c9d6"
-        strokeWidth="1"
       />
-      {/* Right wing feather details */}
       <path
-        d={`M62 ${18 - wingOffset * 0.7} Q70 ${14 - wingOffset} 75 ${10 - wingOffset}`}
+        d={`M20 ${bodyY + 1} L18 ${bodyY + 2} L20 ${bodyY + 3}`}
         stroke="#d9c9d6"
         strokeWidth="0.5"
         fill="none"
       />
-      {/* Right wing tip (dark feathers) */}
+
+      {/* --- Body (bobs with wings) --- */}
+      <ellipse cx="40" cy={bodyY} rx="12" ry="5" fill="#f7f4e3" />
+
+      {/* --- Near (right) wing — rendered in front of body --- */}
       <path
-        d={`M78 ${8 - wingOffset} Q74 ${11 - wingOffset} 68 ${15 - wingOffset} L72 ${10 - wingOffset} L76 ${7 - wingOffset} Z`}
+        d={`M52 ${bodyY + 1} Q68 ${18 + wingOffset} 78 ${8 + wingOffset} Q65 ${16 + wingOffset} 52 ${bodyY - 2} Z`}
+        fill="#f7f4e3"
+        stroke="#d9c9d6"
+        strokeWidth="1"
+      />
+      <path
+        d={`M62 ${18 + wingOffset * 0.7} Q70 ${14 + wingOffset} 75 ${10 + wingOffset}`}
+        stroke="#d9c9d6"
+        strokeWidth="0.5"
+        fill="none"
+      />
+      <path
+        d={`M78 ${8 + wingOffset} Q74 ${11 + wingOffset} 68 ${15 + wingOffset} L72 ${10 + wingOffset} L76 ${7 + wingOffset} Z`}
         fill="#4a6a7a"
       />
-      {/* Tail feathers */}
-      <path d="M28 27 L18 30 L28 31 Z" fill="#f7f4e3" />
-      <path d="M20 29 L18 30 L20 31" stroke="#d9c9d6" strokeWidth="0.5" fill="none" />
+
+      {/* --- Head, eye, beak (bob with body) --- */}
+      <circle cx="52" cy={headY} r="5" fill="#f7f4e3" />
+      <circle cx="54" cy={headY - 1} r="1" fill="#2a3a4a" />
+      <path
+        d={`M57 ${headY} L64 ${headY + 1} L57 ${headY + 3} Z`}
+        fill="#e8a87c"
+      />
     </svg>
   )
 }
