@@ -123,3 +123,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hero pastel clouds — slow drift, used by components/hero-clouds.tsx */
+@keyframes hero-cloud-drift-ltr {
+  from {
+    transform: translate3d(-18vw, 0, 0);
+  }
+  to {
+    transform: translate3d(118vw, 0, 0);
+  }
+}
+
+@keyframes hero-cloud-drift-rtl {
+  from {
+    transform: translate3d(118vw, 0, 0);
+  }
+  to {
+    transform: translate3d(-18vw, 0, 0);
+  }
+}
