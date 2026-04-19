@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, ExternalLink, MapPin, Briefcase } from "lucide-react"
+import { Github, Linkedin, Twitter, Mail, ExternalLink, MapPin, Briefcase, FileText } from "lucide-react"
 import Link from "next/link"
 import FlyingBirds from "@/components/flying-birds"
 import HeroClouds from "@/components/hero-clouds"
@@ -10,6 +10,8 @@ import HeroClouds from "@/components/hero-clouds"
 // Teal ocean: #4a9ba0
 // Light sky blue: #8ac4d0
 // Pale blue: #c5dde8
+
+const RESUME_PDF = "/Daniel-He-Resume.pdf"
 
 const PROJECTS = [
   {
@@ -214,12 +216,14 @@ export default function Home() {
             >
               View My Work
             </Link>
-            <Link
-              href="#contact"
+            <a
+              href={RESUME_PDF}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3 border-2 border-[#4a9ba0] text-[#4a9ba0] hover:bg-[#4a9ba0]/10 rounded-lg font-medium transition-colors duration-300"
             >
-              Get In Touch
-            </Link>
+              View My Resume
+            </a>
           </div>
         </div>
       </section>
@@ -431,6 +435,15 @@ export default function Home() {
             >
               <Twitter className="w-5 h-5" />
             </Link>
+            <a
+              href={RESUME_PDF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#c5dde8] hover:text-white transition-colors"
+              aria-label="View resume PDF"
+            >
+              <FileText className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </footer>
