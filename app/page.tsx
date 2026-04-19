@@ -171,7 +171,7 @@ export default function Home() {
           >
             Daniel
           </h1>
-          <div className="flex items-center justify-center gap-6 mb-12">
+          <div className="flex items-center justify-center gap-6 mb-8">
             <Link
               href="https://github.com/DanielHe09"
               target="_blank"
@@ -209,10 +209,10 @@ export default function Home() {
               <Mail className="w-5 h-5" />
             </Link>
           </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mx-auto flex w-full max-w-lg flex-col gap-4 sm:flex-row sm:items-stretch">
             <Link
               href="#projects"
-              className="px-8 py-3 bg-[#4a9ba0] hover:bg-[#3a8b90] text-white rounded-lg font-medium transition-colors duration-300"
+              className="flex flex-1 items-center justify-center border-2 border-transparent px-8 py-3 text-center bg-[#4a9ba0] hover:bg-[#3a8b90] text-white rounded-lg font-medium transition-colors duration-300"
             >
               View My Work
             </Link>
@@ -220,7 +220,7 @@ export default function Home() {
               href={RESUME_PDF}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 border-2 border-[#4a9ba0] text-[#4a9ba0] hover:bg-[#4a9ba0]/10 rounded-lg font-medium transition-colors duration-300"
+              className="flex flex-1 items-center justify-center border-2 border-[#4a9ba0] px-8 py-3 text-center text-[#4a9ba0] hover:bg-[#4a9ba0]/10 rounded-lg font-medium transition-colors duration-300"
             >
               View My Resume
             </a>
