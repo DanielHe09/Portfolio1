@@ -13,6 +13,22 @@ import HeroClouds from "@/components/hero-clouds"
 
 const RESUME_PDF = "/Daniel-He-Resume.pdf"
 
+const DEVICON_BASE = "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons"
+
+const ABOUT_TECH = [
+  {
+    name: "LangChain",
+    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/langchain.svg",
+  },
+  { name: "MongoDB", icon: `${DEVICON_BASE}/mongodb/mongodb-original.svg` },
+  { name: "TypeScript", icon: `${DEVICON_BASE}/typescript/typescript-original.svg` },
+  { name: "React", icon: `${DEVICON_BASE}/react/react-original.svg` },
+  { name: "Next.js", icon: `${DEVICON_BASE}/nextjs/nextjs-original.svg` },
+  { name: "Python", icon: `${DEVICON_BASE}/python/python-original.svg` },
+  { name: "FastAPI", icon: `${DEVICON_BASE}/fastapi/fastapi-original.svg` },
+  { name: "Supabase", icon: `${DEVICON_BASE}/supabase/supabase-original.svg` },
+] as const
+
 const PROJECTS = [
   {
     title: "Dex2",
@@ -209,10 +225,10 @@ export default function Home() {
               <Mail className="w-5 h-5" />
             </Link>
           </div>
-          <div className="mx-auto flex w-full max-w-lg flex-col gap-4 sm:flex-row sm:items-stretch">
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-3">
             <Link
               href="#projects"
-              className="flex flex-1 items-center justify-center border-2 border-transparent px-8 py-3 text-center bg-[#4a9ba0] hover:bg-[#3a8b90] text-white rounded-lg font-medium transition-colors duration-300"
+              className="inline-flex items-center justify-center border-2 border-transparent px-5 py-2.5 text-center whitespace-nowrap bg-[#4a9ba0] hover:bg-[#3a8b90] text-white rounded-lg text-sm font-medium transition-colors duration-300 sm:px-6 sm:py-3 sm:text-base"
             >
               View My Work
             </Link>
@@ -220,9 +236,9 @@ export default function Home() {
               href={RESUME_PDF}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-1 items-center justify-center border-2 border-[#4a9ba0] px-8 py-3 text-center text-[#4a9ba0] hover:bg-[#4a9ba0]/10 rounded-lg font-medium transition-colors duration-300"
+              className="inline-flex items-center justify-center border-2 border-[#4a9ba0] px-5 py-2.5 text-center whitespace-nowrap text-[#4a9ba0] hover:bg-[#4a9ba0]/10 rounded-lg text-sm font-medium transition-colors duration-300 sm:px-6 sm:py-3 sm:text-base"
             >
-              View My Resume
+              View Resume
             </a>
           </div>
         </div>
@@ -243,11 +259,20 @@ export default function Home() {
                 Currently, I&apos;m doing undergraduate research for LLM hallucination benchmarking and synthetic data generation. I&apos;ve also worked on AI infrastructure for internal chatbots and automation.
               </p>
               <p>Here are some technologies I&apos;ve been working with:</p>
-              <div className="grid grid-cols-2 gap-2 mt-4">
-                {["LangChain", "MongoDB", "TypeScript", "React", "Next.js", "Python", "FastAPI", "Supabase"].map((tech) => (
-                  <div key={tech} className="flex items-center gap-2 text-sm">
-                    <span className="text-[#4a9ba0]">▹</span>
-                    {tech}
+              <div className="grid grid-cols-2 gap-x-3 gap-y-2.5 mt-4">
+                {ABOUT_TECH.map(({ name, icon }) => (
+                  <div key={name} className="flex items-center gap-2.5 text-sm text-[#4a6a7a]">
+                    <img
+                      src={icon}
+                      alt=""
+                      width={22}
+                      height={22}
+                      className="size-[22px] shrink-0 object-contain opacity-90"
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                    />
+                    <span>{name}</span>
                   </div>
                 ))}
               </div>
