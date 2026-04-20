@@ -9,6 +9,7 @@ import {
   FileText,
 } from "lucide-react"
 import Link from "next/link"
+import Script from "next/script"
 import FlyingBirds from "@/components/flying-birds"
 import HeroClouds from "@/components/hero-clouds"
 import { ScrollReveal } from "@/components/scroll-reveal"
@@ -22,6 +23,9 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 // Pale blue: #c5dde8
 
 const RESUME_PDF = "/Daniel-He-Resume.pdf"
+
+/** Must match `members/<slug>.json` in your webring.ca pull request. */
+const WEBRING_MEMBER_SLUG = "daniel-he"
 
 const DEVICON_BASE = "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons"
 
@@ -479,46 +483,69 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 px-6 bg-[#4a9ba0]">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[#c5dde8] text-sm">
-            Designed &amp; Built with care
-          </p>
-          <div className="flex items-center gap-4">
-            <Link
-              href="https://github.com/DanielHe09"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#c5dde8] hover:text-white transition-colors"
-            >
-              <Github className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/daniel-he-1309b2294/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#c5dde8] hover:text-white transition-colors"
-            >
-              <Linkedin className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://x.com/DanielHe09"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#c5dde8] hover:text-white transition-colors"
-            >
-              <Twitter className="w-5 h-5" />
-            </Link>
-            <a
-              href={RESUME_PDF}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#c5dde8] hover:text-white transition-colors"
-              aria-label="View resume PDF"
-            >
-              <FileText className="w-5 h-5" />
-            </a>
+        <div className="max-w-4xl mx-auto flex flex-col gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-[#c5dde8] text-sm">
+              Designed &amp; Built with care
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="https://github.com/DanielHe09"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#c5dde8] hover:text-white transition-colors"
+              >
+                <Github className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/daniel-he-1309b2294/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#c5dde8] hover:text-white transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://x.com/DanielHe09"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#c5dde8] hover:text-white transition-colors"
+              >
+                <Twitter className="w-5 h-5" />
+              </Link>
+              <a
+                href={RESUME_PDF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#c5dde8] hover:text-white transition-colors"
+                aria-label="View resume PDF"
+              >
+                <FileText className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+          <div
+            className="flex justify-center pt-3 border-t border-[#c5dde8]/25"
+            aria-label="Canadian builders webring"
+          >
+            <div
+              data-webring="ca"
+              data-member={WEBRING_MEMBER_SLUG}
+              className="py-1"
+              style={
+                {
+                  "--webring-color": "#c5dde8",
+                  "--webring-accent": "#ffffff",
+                  "--webring-size": "1.15rem",
+                } as React.CSSProperties
+              }
+            />
           </div>
         </div>
+        <Script
+          src="https://webring.ca/embed.js"
+          strategy="lazyOnload"
+        />
       </footer>
     </main>
   )
