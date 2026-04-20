@@ -1,4 +1,13 @@
-import { Github, Linkedin, Twitter, Mail, ExternalLink, MapPin, Briefcase, FileText } from "lucide-react"
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Mail,
+  ExternalLink,
+  MapPin,
+  Calendar,
+  FileText,
+} from "lucide-react"
 import Link from "next/link"
 import FlyingBirds from "@/components/flying-birds"
 import HeroClouds from "@/components/hero-clouds"
@@ -28,6 +37,28 @@ const ABOUT_TECH = [
   { name: "Python", icon: `${DEVICON_BASE}/python/python-original.svg` },
   { name: "FastAPI", icon: `${DEVICON_BASE}/fastapi/fastapi-original.svg` },
   { name: "Supabase", icon: `${DEVICON_BASE}/supabase/supabase-original.svg` },
+] as const
+
+const EXPERIENCES = [
+  {
+    role: "Undergraduate Research Assistant",
+    company: "Western University",
+    companyUrl: "https://a-narayan.github.io/#/",
+    period: "Oct 2025 – Present",
+    description:
+      "LLM hallucination benchmarking and synthetic data generation for evaluation pipelines.",
+    logo: "/experience/westernuniversity_logo.jpeg",
+    logoAlt: "Western University",
+  },
+  {
+    role: "Developer 1 Intern",
+    company: "Scotiabank",
+    companyUrl: "https://www.scotiabank.com",
+    period: "May 2025 – Aug 2025",
+    description: "AI infrastructure work for internal chatbots and automation.",
+    logo: "/experience/scotiabank_logo.jpeg",
+    logoAlt: "Scotiabank",
+  },
 ] as const
 
 const PROJECTS = [
@@ -279,7 +310,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex justify-center md:justify-end">
-              <div className="w-48 h-48 rounded-lg bg-gradient-to-br from-[#8ac4d0]/30 to-[#4a9ba0]/20 border-2 border-[#4a9ba0]/30 overflow-hidden isolate [will-change:transform]">
+              <div className="h-72 w-72 rounded-lg bg-gradient-to-br from-[#8ac4d0]/30 to-[#4a9ba0]/20 border-2 border-[#4a9ba0]/30 overflow-hidden isolate [will-change:transform]">
                 <img
                   src="/Profile.png"
                   alt="Headshot"
@@ -294,43 +325,62 @@ export default function Home() {
 
       {/* Experience Section */}
       <section id="experience" className="py-24 px-6 bg-[#f5ddd5]">
-        <ScrollReveal className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center text-[#2a4a5a]">
-            Experience
-          </h2>
-          <div className="space-y-8">
-            {[
-              {
-                role: "Undergraduate Research Assistant",
-                company: "Western University",
-                period: "Oct 2025 - Present",
-                description: "LLM hallucination benchmarking and synthetic data generation for evaluation pipelines.",
-              },
-              {
-                role: "Developer 1 Intern",
-                company: "Scotiabank",
-                period: "May 2025 - August 2025",
-                description: "AI infrastructure work for internal chatbots and automation.",
-              },
-            ].map((job, index) => (
-              <div
-                key={index}
-                className="relative pl-8 border-l-2 border-[#d9c9d6] hover:border-[#4a9ba0] transition-colors duration-300"
-              >
-                <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-[#4a9ba0]" />
-                <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-                  <h3 className="text-xl font-semibold text-[#2a4a5a]">{job.role}</h3>
-                  <span className="hidden md:block text-[#8a9aaa]">@</span>
-                  <span className="text-[#4a9ba0]">{job.company}</span>
-                </div>
-                <p className="text-sm text-[#7a8a9a] mb-3 flex items-center gap-2">
-                  <Briefcase className="w-4 h-4" />
-                  {job.period}
-                </p>
-                <p className="text-[#4a6a7a]">{job.description}</p>
-              </div>
+        <ScrollReveal className="mx-auto max-w-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-[#2a4a5a]">Experience</h2>
+          <ul className="flex flex-col gap-5 md:gap-6">
+            {EXPERIENCES.map((job) => (
+              <li key={job.company}>
+                <article className="group flex flex-col gap-4 overflow-hidden rounded-2xl border-2 border-[#ae8a9a] bg-[#f7f4e3]/85 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#ecd4d8]/55 hover:shadow-md md:flex-row md:items-stretch md:gap-5 md:p-6">
+                  <div className="flex shrink-0 items-center gap-4 md:flex-col md:items-stretch md:gap-3">
+                    <div className="isolate flex h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden rounded-2xl border-2 border-[#ae8a9a] bg-[#f7f4e3] transition-colors duration-300 group-hover:border-[#957082] md:h-[5rem] md:w-[5rem]">
+                      <img
+                        src={job.logo}
+                        alt={job.logoAlt}
+                        width={160}
+                        height={160}
+                        className="h-full w-full object-contain object-center mix-blend-multiply"
+                        loading="lazy"
+                        decoding="async"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                      <h3 className="text-lg font-semibold text-[#2a4a5a] transition-colors duration-300 group-hover:text-[#6f3d4d] md:text-xl">
+                        {job.role}
+                      </h3>
+                      <span className="hidden text-[#9aa8b8] sm:inline" aria-hidden>
+                        ·
+                      </span>
+                      <Link
+                        href={job.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-[#7d4e5c] underline-offset-2 transition-colors duration-300 hover:text-[#5c3542] hover:underline group-hover:text-[#6a3d4a]"
+                      >
+                        {job.company}
+                        <ExternalLink
+                          className="size-3.5 shrink-0 text-[#9a7080] transition-colors duration-300 group-hover:text-[#7d4e5c]"
+                          aria-hidden
+                        />
+                      </Link>
+                    </div>
+                    <p className="mt-2 flex items-center gap-2 text-sm text-[#7a8a9a] transition-colors duration-300 group-hover:text-[#5c4a52]">
+                      <Calendar
+                        className="size-4 shrink-0 text-[#9a7080] transition-colors duration-300 group-hover:text-[#7d4e5c]"
+                        aria-hidden
+                      />
+                      {job.period}
+                    </p>
+                    <p className="mt-3 text-[0.9375rem] leading-relaxed text-[#4a6a7a] md:text-base">
+                      {job.description}
+                    </p>
+                  </div>
+                </article>
+              </li>
             ))}
-          </div>
+          </ul>
         </ScrollReveal>
       </section>
 
