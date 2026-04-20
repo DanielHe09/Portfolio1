@@ -2,6 +2,7 @@ import { Github, Linkedin, Twitter, Mail, ExternalLink, MapPin, Briefcase, FileT
 import Link from "next/link"
 import FlyingBirds from "@/components/flying-birds"
 import HeroClouds from "@/components/hero-clouds"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 // Color palette from the image:
 // Soft cream: #f7f4e3
@@ -246,7 +247,7 @@ export default function Home() {
 
       {/* About Section */}
       <section id="about" className="py-24 px-6 bg-[#f7f4e3]">
-        <div className="max-w-4xl mx-auto">
+        <ScrollReveal className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-[#2a4a5a]">
             About Me
           </h2>
@@ -278,25 +279,22 @@ export default function Home() {
               </div>
             </div>
             <div className="flex justify-center md:justify-end">
-              <div className="relative">
-                <div className="w-48 h-48 rounded-lg bg-gradient-to-br from-[#8ac4d0]/30 to-[#4a9ba0]/20 border-2 border-[#4a9ba0]/30 overflow-hidden">
-                  <img
-                    src="/Profile.png"
-                    alt="Headshot"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="absolute -bottom-2 -right-2 w-48 h-48 border-2 border-[#4a9ba0]/30 rounded-lg -z-10" />
+              <div className="w-48 h-48 rounded-lg bg-gradient-to-br from-[#8ac4d0]/30 to-[#4a9ba0]/20 border-2 border-[#4a9ba0]/30 overflow-hidden isolate [will-change:transform]">
+                <img
+                  src="/Profile.png"
+                  alt="Headshot"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Experience Section */}
       <section id="experience" className="py-24 px-6 bg-[#f5ddd5]">
-        <div className="max-w-4xl mx-auto">
+        <ScrollReveal className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-[#2a4a5a]">
             Experience
           </h2>
@@ -333,7 +331,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Projects Section */}
