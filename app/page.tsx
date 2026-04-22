@@ -12,6 +12,7 @@ import Link from "next/link"
 import Script from "next/script"
 import FlyingBirds from "@/components/flying-birds"
 import HeroClouds from "@/components/hero-clouds"
+import { ProfilePhotoDeck } from "@/components/profile-photo-deck"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 // Color palette from the image:
@@ -28,6 +29,9 @@ const RESUME_PDF = "/Daniel-He-Resume.pdf"
 const WEBRING_MEMBER_SLUG = "daniel-he"
 
 const DEVICON_BASE = "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons"
+
+/** Stack uses up to three images; add more paths under /public to vary the deck. */
+const ABOUT_PHOTOS = [{ src: "/Profile.png", alt: "Daniel He" }] as const
 
 const ABOUT_TECH = [
   {
@@ -282,12 +286,12 @@ export default function Home() {
 
       {/* About Section */}
       <section id="about" className="py-24 px-6 bg-[#f7f4e3]">
-        <ScrollReveal className="max-w-4xl mx-auto">
+        <ScrollReveal className="mx-auto max-w-5xl">
           <h2 className="text-3xl font-bold mb-12 text-center text-[#2a4a5a]">
             About Me
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="md:col-span-2 space-y-4 text-[#4a6a7a] leading-relaxed">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-y-12 gap-x-0 md:max-w-none md:grid-cols-3 md:gap-x-16 md:gap-y-0 lg:gap-x-24">
+            <div className="mx-auto w-full max-w-xl space-y-4 text-center text-[#4a6a7a] leading-relaxed md:col-span-2 md:mx-0 md:max-w-none md:text-left">
               <p>
                 I&apos;m a CS student building AI agents, full-stack systems, and applied AI/ML. I care about writing reliable software, especially when models and data are involved.
               </p>
@@ -295,9 +299,12 @@ export default function Home() {
                 Currently, I&apos;m doing undergraduate research for LLM hallucination benchmarking and synthetic data generation. I&apos;ve also worked on AI infrastructure for internal chatbots and automation.
               </p>
               <p>Here are some technologies I&apos;ve been working with:</p>
-              <div className="grid grid-cols-2 gap-x-3 gap-y-2.5 mt-4">
+              <div className="mx-auto mt-5 grid max-w-md grid-cols-2 gap-x-6 gap-y-3 md:mx-0 md:max-w-none">
                 {ABOUT_TECH.map(({ name, icon }) => (
-                  <div key={name} className="flex items-center gap-2.5 text-sm text-[#4a6a7a]">
+                  <div
+                    key={name}
+                    className="flex items-center justify-center gap-2.5 text-sm text-[#4a6a7a] md:justify-start"
+                  >
                     <img
                       src={icon}
                       alt=""
@@ -313,15 +320,8 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="flex justify-center md:justify-end">
-              <div className="h-72 w-72 rounded-lg bg-gradient-to-br from-[#8ac4d0]/30 to-[#4a9ba0]/20 border-2 border-[#4a9ba0]/30 overflow-hidden isolate [will-change:transform]">
-                <img
-                  src="/Profile.png"
-                  alt="Headshot"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
+            <div className="flex justify-center md:items-start">
+              <ProfilePhotoDeck photos={[...ABOUT_PHOTOS]} />
             </div>
           </div>
         </ScrollReveal>
