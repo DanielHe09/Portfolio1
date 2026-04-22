@@ -290,7 +290,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-12 text-center text-[#2a4a5a]">
             About Me
           </h2>
-          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-y-12 gap-x-0 md:max-w-none md:grid-cols-3 md:gap-x-16 md:gap-y-0 lg:gap-x-24">
+          <div className="mx-auto grid min-w-0 max-w-4xl grid-cols-1 gap-y-12 gap-x-0 md:max-w-none md:grid-cols-3 md:gap-x-16 md:gap-y-0 lg:gap-x-24">
             <div className="mx-auto w-full max-w-xl space-y-4 text-center text-[#4a6a7a] leading-relaxed md:col-span-2 md:mx-0 md:max-w-none md:text-left">
               <p>
                 I&apos;m a CS student building AI agents, full-stack systems, and applied AI/ML. I care about writing reliable software, especially when models and data are involved.
@@ -320,7 +320,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="flex justify-center md:items-start">
+            <div className="flex min-w-0 justify-center md:items-start">
               <ProfilePhotoDeck photos={[...ABOUT_PHOTOS]} />
             </div>
           </div>

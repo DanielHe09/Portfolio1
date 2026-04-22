@@ -91,7 +91,7 @@ export function ProfilePhotoDeck({ photos }: { photos: ProfileDeckPhoto[] }) {
   if (deck.length === 0) return null
 
   return (
-    <div className="inline-flex max-w-full flex-col items-stretch gap-7">
+    <div className="flex w-full min-w-0 max-w-full flex-col items-center gap-7">
       <div
         className="relative isolate mx-auto h-[min(22rem,72vw)] w-[min(26rem,88vw)] max-w-full sm:w-[min(26rem,80vw)]"
         aria-label="Photo stack — drag the top image left to see the next"
@@ -115,10 +115,11 @@ export function ProfilePhotoDeck({ photos }: { photos: ProfileDeckPhoto[] }) {
           )
         })}
       </div>
-      <div className="w-full pt-1 text-center">
-        <span className="inline-block translate-x-[min(1.35rem,4.5vw)] text-xs leading-snug text-[#7a8a9a] sm:translate-x-[min(2rem,5.5vw)]">
+      {/* Caption anchored to middle card center: x 33% + half card width = 0.83 × card width from deck left */}
+      <div className="relative mx-auto min-h-[2.75rem] w-[min(26rem,88vw)] max-w-full pt-1 sm:w-[min(26rem,80vw)]">
+        <p className="absolute left-[calc(min(18rem,72vw)*0.83)] top-0 -translate-x-1/2 whitespace-nowrap text-xs leading-snug text-[#7a8a9a]">
           Drag the top photo left to flip through.
-        </span>
+        </p>
       </div>
     </div>
   )
