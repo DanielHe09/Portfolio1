@@ -32,10 +32,36 @@ const DEVICON_BASE = "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons
 
 /** Photo deck: 3 fanned + 1 stacked under the back when you list 4 images. */
 const ABOUT_PHOTOS = [
-  { src: "/Profile.png", alt: "Daniel He" },
-  { src: "/IMG_3570.jpg", alt: "Daniel He" },
-  { src: "/IMG_3571.jpg", alt: "Daniel He" },
-  { src: "/IMG_9964%203.JPEG", alt: "Daniel He" },
+  {
+    src: "/Profile.png",
+    alt: "Daniel He",
+    hint: "Try Swiping Left!",
+  },
+  {
+    src: "/IMG_3570.jpg",
+    alt: "Daniel He",
+    hint: "Eras Tour 2024 🎸",
+  },
+  {
+    src: "/IMG_3571.jpg",
+    alt: "Daniel He",
+    hint: "Senior trip to Portugal 🇵🇹",
+  },
+  {
+    src: "/IMG_9964%203.JPEG",
+    alt: "Daniel He",
+    hint: "CNE 2024 🎆",
+  },
+  {
+    src: "/IMG_2144.jpg",
+    alt: "Daniel He",
+    hint: "First year dorm @Western 🥹",
+  },
+  {
+    src: "/IMG_3171.jpg",
+    alt: "Daniel He",
+    hint: "Universal Studios 2025 🪄",
+  },
 ] as const
 
 const ABOUT_TECH = [

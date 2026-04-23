@@ -3,25 +3,27 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 
-export type ProfileDeckPhoto = { src: string; alt: string }
+export type ProfileDeckPhoto = { src: string; alt: string; hint: string }
 
 type CardPosition = "front" | "middle" | "back" | "hidden"
 
 function PhotoCard({
   photo,
   position,
+  stackIndex,
+  stackSize,
   onShuffle,
 }: {
   photo: ProfileDeckPhoto
   position: CardPosition
+  stackIndex: number
+  stackSize: number
   onShuffle: () => void
 }) {
   const dragRef = React.useRef(0)
   const isFront = position === "front"
   const isHidden = position === "hidden"
-
-  const z =
-    position === "front" ? 3 : position === "middle" ? 2 : position === "back" ? 1 : 0
+  const z = stackSize - 1 - stackIndex
 
   return (
     <motion.div
@@ -87,7 +89,7 @@ function slotPosition(index: number, total: number): CardPosition {
     if (index === 1) return "middle"
     return "back"
   }
-  /* 4 slots: same fan as 3, fourth sits under the visible back card */
+  /* 4+ slots: fan on first three; rest share the back pose under the visible back */
   if (index === 0) return "front"
   if (index === 1) return "middle"
   if (index === 2) return "back"
@@ -95,17 +97,22 @@ function slotPosition(index: number, total: number): CardPosition {
 }
 
 export function ProfilePhotoDeck({ photos }: { photos: readonly ProfileDeckPhoto[] }) {
-  const deckDepth = photos.length === 0 ? 0 : photos.length >= 4 ? 4 : 3
+  /* At least 3 slots for the fan; if you have more photos, all of them cycle (extras stack under the back). */
+  const deckDepth = photos.length === 0 ? 0 : Math.max(photos.length, 3)
   const deck = React.useMemo(() => buildDeck(photos, deckDepth), [photos, deckDepth])
-  const photoSrcKey = React.useMemo(() => photos.map((p) => p.src).join("|"), [photos])
+  const photoSrcKey = React.useMemo(
+    () => photos.map((p) => `${p.src}\0${p.hint}`).join("|"),
+    [photos]
+  )
   const [order, setOrder] = React.useState(() => Array.from({ length: deckDepth }, (_, i) => i))
 
   React.useEffect(() => {
-    const depth = photos.length === 0 ? 0 : photos.length >= 4 ? 4 : 3
+    const depth = photos.length === 0 ? 0 : Math.max(photos.length, 3)
     setOrder(Array.from({ length: depth }, (_, i) => i))
   }, [photoSrcKey, photos.length])
 
   const ordered = order.map((i) => deck[i]!)
+  const frontHint = ordered[0]?.hint ?? "Drag the top photo left to flip through."
 
   const shuffle = React.useCallback(() => {
     setOrder((prev) => {
@@ -120,21 +127,24 @@ export function ProfilePhotoDeck({ photos }: { photos: readonly ProfileDeckPhoto
     <div className="flex w-full min-w-0 max-w-full flex-col items-center gap-7">
       <div
         className="relative isolate mx-auto h-[min(22rem,72vw)] w-[min(26rem,88vw)] max-w-full sm:w-[min(26rem,80vw)]"
-        aria-label="Photo stack — drag the top image left to flip through photos"
+        aria-label={frontHint}
       >
         {ordered.map((photo, index) => (
           <PhotoCard
             key={order[index]}
             photo={photo}
             position={slotPosition(index, ordered.length)}
+            stackIndex={index}
+            stackSize={ordered.length}
             onShuffle={shuffle}
           />
         ))}
       </div>
       {/* Caption anchored to middle card center: x 33% + half card width = 0.83 × card width from deck left */}
       <div className="relative mx-auto min-h-[2.75rem] w-[min(26rem,88vw)] max-w-full pt-1 sm:w-[min(26rem,80vw)]">
-        <p className="absolute left-[calc(min(18rem,72vw)*0.83)] top-0 -translate-x-1/2 whitespace-nowrap text-xs leading-snug text-[#7a8a9a]">
-          Drag the top photo left to flip through.
+        {/* Explicit width so absolute + translate doesn’t shrink-wrap to one word per line */}
+        <p className="absolute left-[calc(min(18rem,72vw)*0.83)] top-0 w-[min(22rem,calc(100%-0.75rem))] -translate-x-1/2 px-1 text-center text-xs leading-snug text-[#7a8a9a]">
+          {frontHint}
         </p>
       </div>
     </div>
