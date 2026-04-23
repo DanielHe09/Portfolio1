@@ -10,6 +10,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import Script from "next/script"
+import FloatingBoat from "@/components/floating-boat"
 import FlyingBirds from "@/components/flying-birds"
 import HeroClouds from "@/components/hero-clouds"
 import { ProfilePhotoDeck } from "@/components/profile-photo-deck"
@@ -202,6 +203,9 @@ export default function Home() {
               />
             </path>
           </svg>
+
+          {/* Drifting boat — rendered before the front wave so the hull is hidden behind it */}
+          <FloatingBoat />
 
           {/* Front wave - closest */}
           <svg

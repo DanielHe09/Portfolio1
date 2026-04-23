@@ -165,3 +165,33 @@
     transform: translate3d(-18vw, 0, 0);
   }
 }
+
+/* Hero boat — slow horizontal drift, used by components/floating-boat.tsx */
+@keyframes hero-boat-drift {
+  from {
+    transform: translate3d(-22vw, 0, 0);
+  }
+  to {
+    transform: translate3d(122vw, 0, 0);
+  }
+}
+
+/* Gentle bob + rock on top of the drift */
+@keyframes hero-boat-bob {
+  0% {
+    transform: translateY(0) rotate(-2.5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-2.5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-boat-drift,
+  .hero-boat-bob {
+    animation: none !important;
+  }
+}
