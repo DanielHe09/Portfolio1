@@ -363,7 +363,16 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-24 px-6 bg-[#f5ddd5]">
+      <section id="experience" className="relative py-24 px-6 bg-[#f5ddd5]">
+        {/* Sand island — straddles the cream/pink seam, left edge */}
+        <img
+          src="/Sand%20Island.png"
+          alt=""
+          className="pointer-events-none absolute left-0 top-0 z-10 h-[min(66vw,22.5rem)] w-[min(66vw,22.5rem)] -translate-x-8 -translate-y-[calc(50%+4rem)] rotate-[2deg] object-contain select-none md:-translate-x-14 md:h-[27rem] md:w-[27rem]"
+          draggable={false}
+          loading="lazy"
+          decoding="async"
+        />
         <ScrollReveal className="mx-auto max-w-4xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-[#2a4a5a]">Experience</h2>
           <ul className="flex flex-col gap-5 md:gap-6">
