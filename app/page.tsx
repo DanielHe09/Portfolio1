@@ -328,7 +328,7 @@ export default function Home() {
           <div className="mx-auto grid min-w-0 max-w-4xl grid-cols-1 gap-y-12 gap-x-0 md:max-w-none md:grid-cols-3 md:gap-x-16 md:gap-y-0 lg:gap-x-24">
             <div className="mx-auto w-full max-w-xl space-y-4 text-center text-[#4a6a7a] leading-relaxed md:col-span-2 md:mx-0 md:max-w-none md:text-left">
               <p>
-                I&apos;m a CS student building AI agents, full-stack systems, and applied AI/ML. I care about writing reliable software, especially when models and data are involved.
+                I&apos;m a CS student at Western University building AI agents, full-stack systems, and applied AI/ML. I care about writing reliable software, especially when models and data are involved.
               </p>
               <p>
                 Currently, I&apos;m doing undergraduate research for LLM hallucination benchmarking and synthetic data generation. I&apos;ve also worked on AI infrastructure for internal chatbots and automation.
