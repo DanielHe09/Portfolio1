@@ -433,7 +433,16 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-24 px-6 bg-[#d9c9d6]">
+      <section id="projects" className="relative py-24 px-6 bg-[#d9c9d6]">
+        {/* Anchor — centered on experience/projects seam, right edge */}
+        <img
+          src="/Anchor.png"
+          alt=""
+          className="pointer-events-none absolute right-0 top-0 z-10 h-[min(66vw,22.5rem)] w-[min(66vw,22.5rem)] translate-x-25 -translate-y-1/2 rotate-[15deg] object-contain select-none md:translate-x-20 md:h-[27rem] md:w-[27rem]"
+          draggable={false}
+          loading="lazy"
+          decoding="async"
+        />
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-[#2a4a5a]">Projects</h2>
           <p className="text-center text-[#4a6a7a] text-sm md:text-base mt-3 mb-12 max-w-2xl mx-auto leading-relaxed">
