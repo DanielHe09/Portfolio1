@@ -28,8 +28,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased ${pacifico.variable}`}>
+    <html lang="en" className="overflow-x-hidden">
+      <body
+        className={`font-sans antialiased overflow-x-hidden ${pacifico.variable}`}
+      >
         {children}
         <Analytics />
       </body>

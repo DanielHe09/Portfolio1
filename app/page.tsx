@@ -438,7 +438,7 @@ export default function Home() {
         <img
           src="/Anchor.png"
           alt=""
-          className="pointer-events-none absolute right-0 top-0 z-10 h-[min(66vw,22.5rem)] w-[min(66vw,22.5rem)] translate-x-25 -translate-y-1/2 rotate-[15deg] object-contain select-none md:translate-x-20 md:h-[27rem] md:w-[27rem]"
+          className="pointer-events-none absolute right-0 top-0 z-10 h-[min(66vw,22.5rem)] w-[min(66vw,22.5rem)] translate-x-8 -translate-y-1/2 rotate-[15deg] object-contain select-none md:translate-x-20 md:h-[27rem] md:w-[27rem]"
           draggable={false}
           loading="lazy"
           decoding="async"
