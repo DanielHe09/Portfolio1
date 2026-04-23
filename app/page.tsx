@@ -34,8 +34,8 @@ const DEVICON_BASE = "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons
 const ABOUT_PHOTOS = [
   { src: "/Profile.png", alt: "Daniel He" },
   { src: "/IMG_3570.jpg", alt: "Daniel He" },
-  { src: "/IMG_9964%203.JPEG", alt: "Daniel He" },
   { src: "/IMG_3571.jpg", alt: "Daniel He" },
+  { src: "/IMG_9964%203.JPEG", alt: "Daniel He" },
 ] as const
 
 const ABOUT_TECH = [
