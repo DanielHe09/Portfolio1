@@ -57,6 +57,14 @@ const PROJECTS = [
     url: "https://motor-shield.vercel.app/Dashboard",
     image: "/Motorshield%20Cover.png",
   },
+  {
+    title: "DriftFire Showdown",
+    description:
+      "Did UI/UX for a 3D Car Game by a student-led dev team back in high school.",
+    tags: ["UI/UX", "Unity", "Game Development"],
+    url: "https://milkywaytrail.ca/games/DriftFire%20Showdown",
+    image: "/MilkyWay%20Cover.jpeg",
+  }
 ]
 
 export default function ProjectsPage() {
@@ -80,6 +88,7 @@ export default function ProjectsPage() {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 md:gap-10">
           {PROJECTS.map((project, index) => {
+            const isLastOrphan = PROJECTS.length % 3 === 1 && index === PROJECTS.length - 1
             const cardBody = (
               <>
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#c5dde8]">
@@ -131,14 +140,14 @@ export default function ProjectsPage() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                  className="group flex flex-col overflow-hidden rounded-xl border-2 border-[#4a9ba0] bg-[#f7f4e3] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#4a9ba0]/10 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9ba0]"
+                className={`group flex flex-col overflow-hidden rounded-xl border-2 border-[#4a9ba0] bg-[#f7f4e3] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#4a9ba0]/10 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9ba0] ${isLastOrphan ? "lg:col-start-2" : ""}`}
               >
                 {cardBody}
               </Link>
             ) : (
               <div
                 key={`${project.title}-${index}`}
-                className="group flex flex-col overflow-hidden rounded-xl border-2 border-[#4a9ba0] bg-[#f7f4e3] shadow-sm"
+                className={`group flex flex-col overflow-hidden rounded-xl border-2 border-[#4a9ba0] bg-[#f7f4e3] shadow-sm ${isLastOrphan ? "lg:col-start-2" : ""}`}
               >
                 {cardBody}
               </div>
