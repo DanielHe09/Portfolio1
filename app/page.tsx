@@ -101,49 +101,6 @@ const EXPERIENCES = [
   },
 ] as const
 
-const PROJECTS = [
-  {
-    title: "Dex2",
-    description:
-      "Chrome Extension AI agent that stores tab info as context and performs actions like analyzing sheets, opening new tabs, and drafting emails.",
-    tags: ["LangChain", "MongoDB", "TypeScript", "React", "Python", "FastAPI", "Supabase"],
-    url: "https://github.com/DanielHe09/Dex2",
-    image: "/Dex2%20Cover.png",
-  },
-  {
-    title: "Lumiere",
-    description:
-      "Personalized AI concierge service that uses web crawling to generate accurate, tailored itineraries.",
-    tags: ["TypeScript", "Supabase", "Next.js", "Vercel"],
-    url: "https://lumiere-gamma-self.vercel.app",
-    image: "/Lumiere%20Cover.png",
-  },
-  {
-    title: "Say Less",
-    description:
-      "Web app that converts American Sign Language to speech and speech to text in real time; Best use of ElevenLabs at Hack Trent 2025.",
-    tags: ["Python", "FastAPI", "Docker", "Render", "ElevenLabs", "MediaPipe"],
-    url: "https://devpost.com/software/sayless-3g8jdl",
-    image: "/Sayless%20Cover.png",
-  },
-  {
-    title: "The Fastest Root",
-    description:
-      "Web app that supports restaurant owners and families in accessing affordable groceries efficiently; 3rd place overall at Ignition Hacks 2024.",
-    tags: ["Python", "JavaScript"],
-    url: "https://devpost.com/software/the-fastest-root",
-    image: "/Fastest%20Root%20Cover.png",
-  },
-  {
-    title: "Motor Shield",
-    description:
-      "AI-powered motor telemetry and diagnostics dashboard; received the Industry Choice award at the Canadian Tech Summit.",
-    tags: ["Python", "TypeScript", "Next.js"],
-    url: "https://motor-shield.vercel.app/Dashboard",
-    image: "/Motorshield%20Cover.png",
-  },
-]
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#c5dde8] text-[#2a4a5a]">
@@ -302,10 +259,10 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-3">
             <Link
-              href="#projects"
+              href="/projects"
               className="inline-flex items-center justify-center border-2 border-transparent px-5 py-2.5 text-center whitespace-nowrap bg-[#4a9ba0] hover:bg-[#3a8b90] text-white rounded-lg text-sm font-medium transition-colors duration-300 sm:px-6 sm:py-3 sm:text-base"
             >
-              View My Work
+              View Projects
             </Link>
             <a
               href={RESUME_PDF}
@@ -432,106 +389,49 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="relative py-24 px-6 bg-[#d9c9d6]">
-        {/* Anchor — centered on experience/projects seam, right edge */}
+      {/* Anchor Divider */}
+      <div className="relative h-0">
         <img
           src="/Anchor.png"
           alt=""
-          className="pointer-events-none absolute right-0 top-0 z-10 h-[min(66vw,22.5rem)] w-[min(66vw,22.5rem)] translate-x-8 -translate-y-1/2 rotate-[15deg] object-contain select-none md:translate-x-20 md:h-[27rem] md:w-[27rem]"
+          className="pointer-events-none absolute right-0 top-0 z-20 h-[min(66vw,22.5rem)] w-[min(66vw,22.5rem)] translate-x-8 -translate-y-1/2 rotate-[15deg] object-contain select-none md:translate-x-20 md:h-[27rem] md:w-[27rem]"
           draggable={false}
           loading="lazy"
           decoding="async"
         />
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-[#2a4a5a]">Projects</h2>
-          <p className="text-center text-[#4a6a7a] text-sm md:text-base mt-3 mb-12 max-w-2xl mx-auto leading-relaxed">
-            A collection of my projects and experiences.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            {PROJECTS.map((project, index) => {
-              const cardBody = (
-                <>
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#c5dde8]">
-                    <img
-                      src={project.image}
-                      alt={`${project.title} project preview`}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-4 p-6 md:p-7">
-                    <div className="flex items-start justify-between gap-4">
-                      <h3 className="text-xl md:text-2xl font-semibold text-[#2a4a5a] group-hover:text-[#4a9ba0] transition-colors leading-snug">
-                        {project.title}
-                      </h3>
-                      {project.url ? (
-                        <span className="shrink-0 text-[#8a9aaa] group-hover:text-[#4a9ba0] transition-colors" aria-hidden>
-                          <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
-                        </span>
-                      ) : null}
-                    </div>
-                    <p className="text-[#5a7a8a] text-sm md:text-base leading-relaxed">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs px-2 py-1 bg-[#8ac4d0]/20 text-[#4a9ba0] rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </>
-              )
-
-              return project.url ? (
-                <Link
-                  key={`${project.title}-${index}`}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col overflow-hidden rounded-xl bg-[#f7f4e3] border-2 border-[#4a9ba0] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#4a9ba0]/10 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9ba0]"
-                >
-                  {cardBody}
-                </Link>
-              ) : (
-                <div
-                  key={`${project.title}-${index}`}
-                  className="group flex flex-col overflow-hidden rounded-xl bg-[#f7f4e3] border-2 border-[#4a9ba0] shadow-sm"
-                >
-                  {cardBody}
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      </div>
 
       {/* Contact Section */}
       <section id="contact" className="py-24 px-6 bg-[#8ac4d0]">
-        <div className="max-w-2xl mx-auto text-center">
+        <ScrollReveal className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6 text-[#2a4a5a]">
-            Get In Touch
+            Get In Touch &amp; View Projects
           </h2>
           <p className="text-[#2a4a5a]/80 mb-8 leading-relaxed">
-            I&apos;m currently open to new opportunities. Whether you have a question or just want to say hi, my inbox is always open. I&apos;ll do my best to get back to you!
+            Reach out if you want to connect, collaborate, or chat about opportunities. You can also jump straight to my projects page to see what I&apos;ve been building.
           </p>
-          <Link
-            href="mailto:dhe72@uwo.ca"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-[#f7f4e3] hover:bg-white text-[#4a9ba0] rounded-lg font-medium transition-colors duration-300"
-          >
-            <Mail className="w-5 h-5" />
-            Say Hello
-          </Link>
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href="mailto:dhe72@uwo.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#f7f4e3] px-8 py-3 font-medium text-[#4a9ba0] transition-colors duration-300 hover:bg-white"
+            >
+              <Mail className="w-5 h-5" />
+              Say Hello
+            </Link>
+            <Link
+              href="/projects"
+              className="inline-flex items-center justify-center rounded-lg border-2 border-[#4a9ba0] px-8 py-3 font-medium text-[#2a4a5a] transition-colors duration-300 hover:bg-[#4a9ba0]/10"
+            >
+              View Projects
+            </Link>
+          </div>
           <div className="flex items-center justify-center gap-2 mt-8 text-[#2a4a5a]/70">
             <MapPin className="w-4 h-4" />
             <span>Toronto, ON</span>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Footer */}
