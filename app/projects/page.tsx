@@ -52,7 +52,7 @@ const PROJECTS = [
     description:
       "AI-powered motor telemetry and diagnostics dashboard.",
     awardHighlight: "Industry Choice Award",
-    awardContext: "at the Canadian Tech Summit.",
+    awardContext: "at the Canadian Tech Summit 2026.",
     tags: ["Python", "TypeScript", "Next.js"],
     url: "https://motor-shield.vercel.app/Dashboard",
     image: "/Motorshield%20Cover.png",
