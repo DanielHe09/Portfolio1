@@ -90,48 +90,58 @@ export default function ProjectsPage() {
           {PROJECTS.map((project, index) => {
             const isLastOrphan = PROJECTS.length % 3 === 1 && index === PROJECTS.length - 1
             const cardBody = (
-              <>
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#c5dde8]">
+              <div className="relative">
+                {project.awardHighlight ? (
                   <img
-                    src={project.image}
-                    alt={`${project.title} project preview`}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    src="/Medal.png"
+                    alt={`${project.title} award medal`}
+                    className="pointer-events-none absolute -left-4 -top-3 z-20 h-20 w-20 drop-shadow-md md:-left-5 md:-top-4 md:h-24 md:w-24"
                     loading="lazy"
                   />
-                </div>
-                <div className="flex flex-col gap-4 p-6 md:p-7">
-                  <div className="flex items-start justify-between gap-4">
-                    <h2 className="text-xl font-semibold leading-snug text-[#2a4a5a] transition-colors group-hover:text-[#4a9ba0] md:text-2xl">
-                      {project.title}
-                    </h2>
-                    {project.url ? (
-                      <span
-                        className="shrink-0 text-[#8a9aaa] transition-colors group-hover:text-[#4a9ba0]"
-                        aria-hidden
-                      >
-                        <ExternalLink className="h-5 w-5 md:h-6 md:w-6" />
-                      </span>
-                    ) : null}
+                ) : null}
+                <div className="relative z-0 overflow-hidden rounded-[10px]">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#c5dde8]">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} project preview`}
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
                   </div>
-                  <p className="text-sm leading-relaxed text-[#5a7a8a] md:text-base">
-                    {project.description}
-                    {project.awardHighlight ? (
-                      <>
-                        {" "}
-                        <span className="font-semibold text-[#456b7a]">{project.awardHighlight}</span>
-                        {project.awardContext ? <> {project.awardContext}</> : null}
-                      </>
-                    ) : null}
-                  </p>
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="rounded bg-[#8ac4d0]/20 px-2 py-1 text-xs text-[#4a9ba0]">
-                        {tag}
-                      </span>
-                    ))}
+                  <div className="flex flex-col gap-4 p-6 md:p-7">
+                    <div className="flex items-start justify-between gap-4">
+                      <h2 className="text-xl font-semibold leading-snug text-[#2a4a5a] transition-colors group-hover:text-[#4a9ba0] md:text-2xl">
+                        {project.title}
+                      </h2>
+                      {project.url ? (
+                        <span
+                          className="shrink-0 text-[#8a9aaa] transition-colors group-hover:text-[#4a9ba0]"
+                          aria-hidden
+                        >
+                          <ExternalLink className="h-5 w-5 md:h-6 md:w-6" />
+                        </span>
+                      ) : null}
+                    </div>
+                    <p className="text-sm leading-relaxed text-[#5a7a8a] md:text-base">
+                      {project.description}
+                      {project.awardHighlight ? (
+                        <>
+                          {" "}
+                          <span className="font-semibold text-[#456b7a]">{project.awardHighlight}</span>
+                          {project.awardContext ? <> {project.awardContext}</> : null}
+                        </>
+                      ) : null}
+                    </p>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="rounded bg-[#8ac4d0]/20 px-2 py-1 text-xs text-[#4a9ba0]">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </>
+              </div>
             )
 
             return project.url ? (
@@ -140,14 +150,14 @@ export default function ProjectsPage() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group flex flex-col overflow-hidden rounded-xl border-2 border-[#4a9ba0] bg-[#f7f4e3] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#4a9ba0]/10 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9ba0] ${isLastOrphan ? "lg:col-start-2" : ""}`}
+                className={`group relative flex flex-col overflow-visible rounded-xl border-2 border-[#4a9ba0] bg-[#f7f4e3] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#4a9ba0]/10 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9ba0] ${isLastOrphan ? "lg:col-start-2" : ""}`}
               >
                 {cardBody}
               </Link>
             ) : (
               <div
                 key={`${project.title}-${index}`}
-                className={`group flex flex-col overflow-hidden rounded-xl border-2 border-[#4a9ba0] bg-[#f7f4e3] shadow-sm ${isLastOrphan ? "lg:col-start-2" : ""}`}
+                className={`group relative flex flex-col overflow-visible rounded-xl border-2 border-[#4a9ba0] bg-[#f7f4e3] shadow-sm ${isLastOrphan ? "lg:col-start-2" : ""}`}
               >
                 {cardBody}
               </div>
