@@ -16,9 +16,12 @@ export const metadata: Metadata = {
   description: 'Created with v0',
   generator: 'v0.app',
   icons: {
-    icon: '/icon.png',
-    shortcut: '/icon.png',
-    apple: '/icon.png',
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: '/icon.svg',
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 }
 
