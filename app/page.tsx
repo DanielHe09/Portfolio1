@@ -85,8 +85,8 @@ const EXPERIENCES = [
     company: "OpsGuru",
     companyUrl: "https://www.opsguru.com/",
     period: "May 2026 – Present",
-    description: "AI Agents for enterprise clients",
-    logo: "/OpsGuru.png",
+    description: "AI agents for enterprise clients",
+    logo: "/experience/OpsGuru.png",
     logoAlt: "OpsGuru",
   },
   {
