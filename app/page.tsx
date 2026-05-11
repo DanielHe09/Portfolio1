@@ -81,6 +81,15 @@ const ABOUT_TECH = [
 
 const EXPERIENCES = [
   {
+    role: "Software Engineer Intern",
+    company: "OpsGuru",
+    companyUrl: "https://www.opsguru.com/",
+    period: "May 2026 – Present",
+    description: "AI Agents for enterprise clients",
+    logo: "/OpsGuru.png",
+    logoAlt: "OpsGuru",
+  },
+  {
     role: "Undergraduate Research Assistant",
     company: "Western University",
     companyUrl: "https://a-narayan.github.io/#/",
@@ -378,9 +387,11 @@ export default function Home() {
                       />
                       {job.period}
                     </p>
-                    <p className="mt-3 text-[0.9375rem] leading-relaxed text-[#4a6a7a] md:text-base">
-                      {job.description}
-                    </p>
+                    {job.description.trim() ? (
+                      <p className="mt-3 text-[0.9375rem] leading-relaxed text-[#4a6a7a] md:text-base">
+                        {job.description}
+                      </p>
+                    ) : null}
                   </div>
                 </article>
               </li>
