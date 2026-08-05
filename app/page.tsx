@@ -100,7 +100,7 @@ const EXPERIENCES = [
     logoAlt: "Western University",
   },
   {
-    role: "Developer 1 Intern",
+    role: "Software Engineer Intern",
     company: "Scotiabank",
     companyUrl: "https://www.scotiabank.com",
     period: "May 2025 – Aug 2025",
