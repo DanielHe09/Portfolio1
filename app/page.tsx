@@ -24,7 +24,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 // Light sky blue: #8ac4d0
 // Pale blue: #c5dde8
 
-const RESUME_PDF = "/Daniel-He-Resume.pdf"
+const RESUME_PDF = "/Daniel%20He_Resume.pdf"
 
 /** Must match `members/<slug>.json` in your webring.ca pull request. */
 const WEBRING_MEMBER_SLUG = "daniel-he"
